@@ -1,0 +1,490 @@
+/* ==========================================================================
+   BAGIAN 0: PENGATURAN GLOBAL (BERLAKU UNTUK SEMUA HALAMAN)
+   Digunakan pada: index.html, deskripsi.html, layanan.html, galeri.html, kontak.html
+   ========================================================================== */
+
+/* Reset margin dan padding bawaan browser agar ukuran elemen presisi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mengatur jenis huruf utama, warna latar belakang halaman, dan animasi masuk */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333333;
+    line-height: 1.6;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Animasi transisi halus saat halaman pertama kali dibuka */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Styling standar untuk seluruh paragraf teks */
+p {
+    text-align: justify;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #444444;
+}
+
+/* --- Header Atas & Navigasi Utama (Muncul di Atas Halaman) --- */
+header {
+    background-color: #4a2e18; /* Warna cokelat tua khas tema kuda/alam */
+    color: white;
+    padding: 15px 30px;
+    display: flex; /* Membuat logo di kiri dan tombol WA di kanan */
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #6b4423;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f39c12; /* Aksen warna emas */
+}
+
+/* Tombol Chat WhatsApp khusus di pojok kanan header */
+.wa-btn-header {
+    background-color: #25d366;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.wa-btn-header:hover {
+    transform: scale(1.05); /* Efek membesar sedikit saat disentuh kursor */
+}
+
+/* Baris Menu Navigasi */
+nav {
+    background-color: #5c3a21;
+    padding: 12px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Efek warna emas saat menu diarahkan kursor atau sedang dibuka (active) */
+nav a:hover, nav a.active {
+    color: #f39c12;
+    text-decoration: underline;
+}
+
+/* --- Wadah Utama Konten (Container) --- */
+/* Membungkus isi utama halaman agar berada rapi di tengah layar */
+.container {
+    max-width: 1140px;
+    width: 95%;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================================================
+   BAGIAN 1: HALAMAN BERANDA / INDEX (index.html)
+   Mengatur Hero Banner, Kartu Statistik Gelap, Tombol CTA, dan Peta Situs
+   ========================================================================== */
+
+/* Banner utama dengan latar foto yang digelapkan agar teks putih terbaca */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url(sampel7.jpeg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 { font-size: 40px; margin-bottom: 10px; color: #f39c12; }
+.hero h2 { font-size: 22px; margin-bottom: 15px; color: #ffffff; }
+.hero p { max-width: 700px; margin: 0 auto 25px auto; color: #dddddd; text-align: center; }
+
+/* Wadah Flexbox untuk menyusun kartu statistik secara sejajar */
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 25px auto;
+    max-width: 900px;
+}
+
+/* Kartu statistik transparan di dalam Hero Banner */
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(243, 156, 18, 0.4);
+    backdrop-filter: blur(5px); /* Efek kaca buram */
+    border-radius: 10px;
+    padding: 15px 25px;
+    min-width: 180px;
+    text-align: center;
+    color: white;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px); /* Kartu terangkat saat disentuh kursor */
+    border-color: #f39c12;
+}
+
+.stat-card .num { font-size: 26px; font-weight: bold; color: #f39c12; margin-bottom: 5px; }
+.stat-card .label { font-size: 13px; color: #dddddd; }
+
+/* Tombol Aksi (Call to Action) di bawah kartu statistik */
+.hero-btns { margin-bottom: 20px; }
+
+.btn-wa {
+    background-color: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+.btn-wa:hover { transform: translateY(-3px); }
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.btn-secondary:hover { background-color: white; color: #333333; transform: translateY(-3px); }
+
+/* Pengaturan Gambar Infografis Peta Situs (Image Map) */
+.peta-situs-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Memungkinkan geser horizontal jika dibuka di layar HP kecil */
+    text-align: center;
+    margin: 30px 0;
+}
+
+.img-peta-situs {
+    width: 900px !important; /* Mengunci ukuran gambar agar koordinat <area> tidak meleset */
+    max-width: none !important;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+/* ==========================================================================
+   BAGIAN 2: HALAMAN DESKRIPSI (deskripsi.html)
+   Mengatur Header khusus dalam container, Kartu Konten Zig-Zag, dan Footer Card
+   ========================================================================== */
+
+/* Header khusus di dalam .container pada halaman deskripsi */
+.container header {
+    display: block; /* Mengembalikan display ke block agar teks di tengah */
+    text-align: center;
+    margin-bottom: 35px;
+    background: linear-gradient(135deg, #4a2e18, #6b4423);
+    padding: 25px 20px;
+    border-radius: 12px;
+    border-bottom: none;
+    box-shadow: 0 4px 12px rgba(74, 46, 24, 0.2);
+}
+
+.container header h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Garis aksen emas kecil di bawah judul halaman deskripsi */
+.divider {
+    width: 70px;
+    height: 4px;
+    background-color: #f39c12;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Kartu artikel yang menyusun foto dan paragraf secara berdampingan */
+.content-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    background: #fdfcfb;
+    padding: 25px 30px;
+    border-radius: 12px;
+    border: 1px solid #ede8e2;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Membalik posisi pada kartu ke-2 (Teks di kiri, 3 Foto di kanan) agar dinamis */
+.content-card:nth-of-type(2) {
+    flex-direction: row-reverse;
+}
+
+.text-content { flex: 1; }
+
+/* Kelompok foto di dalam kartu deskripsi */
+.image-group {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.image-group img {
+    width: 155px;
+    height: 210px;
+    object-fit: cover; /* Memotong foto secara proporsional agar tidak gepeng */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-group img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Kartu paragraf penutup di bagian bawah deskripsi */
+.footer-card {
+    background: #fdfcfb;
+    padding: 25px 30px;
+    border-radius: 12px;
+    border: 1px solid #ede8e2;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.footer-card p { margin: 0; }
+
+/* Kartu ajakan (Call to Action) paling bawah dengan latar cokelat gradasi */
+.secondary-footer {
+    background: linear-gradient(135deg, #4a2e18, #6b4423);
+    border: none;
+    margin-bottom: 0;
+}
+
+.secondary-footer p {
+    color: #ffffff;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+/* ==========================================================================
+   BAGIAN 3: HALAMAN LAYANAN & HARGA (layanan.html)
+   Mengatur Tabel Daftar Harga dan Daftar Fasilitas (List)
+   ========================================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Menggabungkan garis batas antar sel tabel */
+    margin: 20px 0;
+}
+
+table th, table td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #5c3a21; /* Header tabel berwarna cokelat */
+    color: white;
+}
+
+/* Mengatur jarak baris dan indentasi pada daftar fasilitas & keunggulan */
+ul, ol {
+    line-height: 1.8;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* ==========================================================================
+   BAGIAN 4: HALAMAN GALERI (galeri.html)
+   Mengatur Grid Foto Dokumentasi yang Responsif
+   ========================================================================== */
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Foto otomatis turun ke baris baru jika layar penuh */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 280px;
+    height: auto !important; /* Tinggi menyesuaikan rasio asli foto */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================================================
+   BAGIAN 5: HALAMAN KONTAK & RESERVASI (kontak.html)
+   Mengatur Formulir Booking, Kartu Kontak Admin, dan Footer Media Sosial
+   ========================================================================== */
+
+.form-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-family: inherit;
+}
+
+/* Mengubah warna garis tepi input saat sedang diketik oleh pengguna */
+input:focus, select:focus, textarea:focus {
+    border-color: #5c3a21;
+    outline: none;
+}
+
+button {
+    background-color: #5c3a21;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #4a2e18;
+    transform: translateY(-2px);
+}
+
+/* Kartu Informasi Admin & Lokasi (Versi latar putih) */
+.stat-card-light {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-top: 3px solid #5c3a21; /* Aksen garis cokelat di bagian atas kartu */
+    border-radius: 8px;
+    padding: 15px;
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.stat-card-light .num { font-size: 18px; font-weight: bold; color: #5c3a21; margin-bottom: 5px; }
+.stat-card-light .label { font-size: 13px; color: #666666; }
+
+/* Bagian Tautan Media Sosial di Bawah Halaman Kontak */
+.footer-info {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee;
+    text-align: center;
+}
+
+.footer-info p { text-align: center; }
+.footer-info a { color: #5c3a21; font-weight: bold; text-decoration: none; }
+
+
+/* ==========================================================================
+   BAGIAN 6: RESPONSIVE DESIGN (TAMPILAN HP & TABLET < 900px)
+   Menyesuaikan tata letak agar tetap rapi saat dibuka di layar kecil
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .container {
+        width: 100%;
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+
+    /* Mengubah kartu deskripsi dari sejajar samping menjadi menumpuk ke bawah */
+    .content-card, .content-card:nth-of-type(2) {
+        flex-direction: column;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .image-group {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .image-group img {
+        width: 31%;
+        max-width: 130px;
+        height: 150px;
+    }
+
+    /* Memperlebar form booking di layar HP agar mudah diisi */
+    .form-container {
+        width: 100%;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+}
